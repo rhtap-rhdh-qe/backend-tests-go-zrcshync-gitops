@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: backend-tests-go-zrcshync-gitops
+  description: This is GitOps manifest for backend-tests-go-zrcshync   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=backend-tests-go-zrcshync
+    backstage.io/kubernetes-id: backend-tests-go-zrcshync 
+    backstage.io/techdocs-ref: dir:. 
+    jenkins.io/job-full-name: backend-tests-go-zrcshync-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:backend-tests-go-zrcshync
